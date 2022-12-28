@@ -8,8 +8,8 @@
 主要参考资料：
 
 1. 漫画算法（不推荐，一言难尽）
-2. 算法图解
-3. 算法导论 <原书第三版> 中文版 
+2. 算法图解（推荐）
+3. 算法导论 <原书第三版> 中文版 （没完全看懂，但是推荐看）
 
 ### 计划实现的数据结构：
 （如果最终没有实现将会从表中移除...）
@@ -28,11 +28,13 @@
 12. B+树和B*树（b+/b* tree）
 13. 红黑树（red black tree）
 14. 哈希表 （hash map）
-15. 优先级队列（Porioity Queue）
-16. 并查集（union find）
-17. 跳表（skip list）
-18. 图（Graph）：
-19. 图的搜索：DFS/BFS
-20. 最小生成树：Dijkstra、BellmanFord、Floyd
-21. 串
-22. 字符串匹配：KMP、BM、RK、Sunday
+15. 二叉堆(binary heap)
+16. 优先级队列(Porioity Queue)
+17. 哈夫曼树(Huffman tree)
+18. 并查集(union find)
+19. 跳表(skip list)
+20. 图(Graph)
+21. 图的搜索：DFS/BFS
+22. 最小生成树：Dijkstra、BellmanFord、Floyd
+23. 串(string matching)
+24. 字符串匹配：KMP（Knuth-Morris-pratt）、BM(Boyer-Moore)、RK(Rabin-Karp)、Sunday
