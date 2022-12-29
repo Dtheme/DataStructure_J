@@ -4,6 +4,7 @@
 ### 推荐
 
 [算法可视化](https://visualgo.net/zh)
+
 [B站redis源码解析:复习hash和跳表](https://www.bilibili.com/video/BV1Jq4y1p7Rw/?spm_id_from=333.337.search-card.all.click&vd_source=e144372d05071b4e4bee1554f7a49a43)
 
 主要参考资料：
