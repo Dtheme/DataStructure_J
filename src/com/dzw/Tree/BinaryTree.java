@@ -1,10 +1,14 @@
 package com.dzw.Tree;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 import com.dzw.Tree.BinaryTreeInfo;
 
+/**
+ *  提供获取二叉树的基本性质的能力：
+ *  是否空、清空二叉树、前、中、后、层 遍历
+ *  求树size、树高、前驱节点、后继节点、兄弟节点等
+ */
 @SuppressWarnings("unchecked")
 public class BinaryTree<E> implements BinaryTreeInfo {
     protected int size;

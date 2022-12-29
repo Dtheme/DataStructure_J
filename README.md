@@ -5,14 +5,14 @@
 
 [算法可视化](https://visualgo.net/zh)
 
-[B站redis源码解析:复习hash和跳表](https://www.bilibili.com/video/BV1Jq4y1p7Rw/?spm_id_from=333.337.search-card.all.click&vd_source=e144372d05071b4e4bee1554f7a49a43)
+### 过程中使用到的参考资料：
 
-主要参考资料：
-
-1. JDK相关源码的阅读（推荐）
+1. JDK相关源码的阅读
 2. 漫画算法（不推荐，一言难尽）
-3. 算法图解（推荐）
-4. 算法导论 <原书第三版> 中文版 （没完全看懂，但是推荐）
+3. 算法图解
+4. 算法导论 <原书第三版> 中文版
+5. [B站redis源码解析:复习hash和跳表](https://www.bilibili.com/video/BV1Jq4y1p7Rw/?spm_id_from=333.337.search-card.all.click&vd_source=e144372d05071b4e4bee1554f7a49a43)
+6. [B树参考论文](https://dl.acm.org/doi/10.1145/356770.356776)
 
 ### 计划实现的数据结构：
 （如果最终没有实现将会从表中移除...）
@@ -28,7 +28,7 @@
 9. 二叉搜索树 (binary search tree)
 10. AVL树 (AVL tree)
 11. B树(b tree)
-12. B+树和B*树（b+/b* tree）
+12. B+树和B\*树（b+、b\* tree）
 13. 红黑树（red black tree）
 14. 哈希表 （hash map）
 15. 二叉堆(binary heap)

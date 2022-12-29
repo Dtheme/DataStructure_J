@@ -1,7 +1,10 @@
 package com.dzw.Tree;
-
 import java.util.Comparator;
 
+/**
+ * 二叉搜索树基类 包含基础的添加、删除、搜索能力
+ * （为了方便后续编码添加的基础类 思路是一样的）
+ */
 @SuppressWarnings("unchecked")
 public class BST<E> extends BinaryTree<E> {
     private Comparator<E> comparator;
@@ -32,6 +35,7 @@ public class BST<E> extends BinaryTree<E> {
         Node<E> parent = root;
         Node<E> node = root;
         int cmp = 0;
+        //进来先执行一遍 再判断节点是否wei空
         do {
             cmp = compare(element, node.element);
             parent = node;
@@ -126,6 +130,11 @@ public class BST<E> extends BinaryTree<E> {
         }
     }
 
+    /**
+     * 二叉搜索树节点
+     * @param element 节点中的元素值
+     * @return 节点
+     */
     private Node<E> node(E element) {
         Node<E> node = root;
         while (node != null) {

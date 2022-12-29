@@ -87,7 +87,6 @@ public class LinkedList<E> extends AbstractList<E> {
 		
 		size++;
 	}
-
 	@Override
 	public E remove(int index) {
 		rangeCheck(index);
@@ -111,7 +110,40 @@ public class LinkedList<E> extends AbstractList<E> {
 		size--;
 		return node.element;
 	}
+	//添加几个便捷方法，方面后面使用，没有什么逻辑 可以忽略
+	/**
+	 *  获取链表首位元素
+	 */
+	public E getLast() {
+		return last.element;
+	}
+	public E getFirst(){
+		return first.element;
+	}
 
+	/**
+	 *	 移除链表的尾元素
+	 */
+	public E removeLast(){
+		return remove(size - 1);
+	}
+	public E removeFirst(){
+		return remove(0);
+	}
+
+	/**
+	 *	在头添加元素
+	 */
+	public void addFirst(E elememt) {
+		add(0, elememt);
+	}
+
+	/**
+	 * 在链表尾添加元素
+	 */
+	public void addLast(E elememt) {
+		add(size - 1, elememt);
+	}
 	@Override
 	public int indexOf(E element) {
 		if (element == null) {
