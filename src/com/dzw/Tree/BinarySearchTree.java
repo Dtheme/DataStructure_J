@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 /**
- *  二叉搜索树相关的 添加、删除、前中后序的遍历操作都写在这个类
+ *  二叉搜索树相关的 添加、删除、前中后序的遍历操作都写在这个类，基础代码都是其他类copy的 主要用来写遍历相关的逻辑 包含递归和非递归的思路）
  */
 @SuppressWarnings("unchecked")
 public class BinarySearchTree<E> implements BinaryTreeInfo {
@@ -147,6 +147,7 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 	
 	/**
 	 * 前序遍历
+	 * 由于设计的初衷是节点不暴露给外部，外部调用接口只关心元素，所以外部逻辑是不管理Node的 下面也是一样的做法
 	 */
 	public void preorderTraversal() {
 		preorderTraversal(root);
@@ -299,7 +300,6 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 		postorder(root, visitor);
 //		preorder_non_recursive(visitor);
 	}
-
 	/**
 	 *   后序遍历递归
 	 */
@@ -480,7 +480,10 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 			throw new IllegalArgumentException("element must not be null");
 		}
 	}
-	
+
+	/**
+	 *  前驱节点
+	 */
 	@SuppressWarnings("unused")
 	private Node<E> predecessor(Node<E> node) {
 		if (node == null) return null;
@@ -503,7 +506,9 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 		// node == node.parent.right
 		return node.parent;
 	}
-	
+	/**
+	 *  后继节点
+	 */
 	private Node<E> successor(Node<E> node) {
 		if (node == null) return null;
 		

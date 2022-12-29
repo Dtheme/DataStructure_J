@@ -1,6 +1,6 @@
 package com.dzw.Tree;
 /**
- *  搜索树公共接口
+ *  二叉搜索树公共接口
  */
 public interface BinaryTreeInfo {
 	/**

@@ -4,9 +4,10 @@ import com.dzw.Tree.BinarySearchTree.Visitor;
 import com.dzw.Utils.Files;
 import com.dzw.Utils.printer.BinaryTrees;
 import com.dzw.models.Person;
-
 import java.util.Comparator;
-
+/**
+ *	二叉树 testcase
+ */
 @SuppressWarnings("unused")
 public class Main {
 	
@@ -26,7 +27,8 @@ public class Main {
 		Integer data[] = new Integer[] {
 				7, 4, 9, 2, 5, 8, 11, 3, 12, 1
 		};
-		
+
+
 		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
 		for (int i = 0; i < data.length; i++) {
 			bst.add(data[i]);
@@ -256,6 +258,9 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
+		test6();
+		test8();
 		test9();
+
 	}
 }
