@@ -1,5 +1,4 @@
 package com.dzw.Tree;
-
 import java.util.Comparator;
 
 /**
@@ -23,13 +22,18 @@ public class RedBlackTree<E> extends BBST<E> {
 	public RedBlackTree() {
 		this(null);
 	}
-	
+
+	/**
+	 * 这里使用的是Java实现的比较器
+	 * @param comparator 比较器
+	 */
 	public RedBlackTree(Comparator<E> comparator) {
 		super(comparator);
 	}
 
 	/**
-	 * 添加节点之后的平衡、恢复rbTree的性质的操作（这是红黑树真正复杂的地方，）
+	 * ❗️核心方法：添加节点之后的平衡、恢复rbTree的性质的操作（这是红黑树真正复杂的地方）
+	 *
 	 * @param node 添加进来的节点 节点默认设成红色
 	 */
 	@Override
@@ -37,7 +41,7 @@ public class RedBlackTree<E> extends BBST<E> {
 	}
 
 	/**
-	 * 删除之后的平衡、恢复rbTree的性质的操作
+	 * ❗️核心方法：删除之后的平衡、恢复rbTree的性质的操作
 	 * @param node 被删除的节点
 	 */
 	@Override

@@ -1,5 +1,4 @@
 package com.dzw.Tree;
-
 import java.util.Comparator;
 
 /**
@@ -53,7 +52,7 @@ public class AVLTree<E> extends BST<E> {
 	}
 	
 	/**
-	 * 恢复平衡
+	 * ❗️核心方法：恢复平衡
 	 * @param grand 高度最低的那个不平衡节点
 	 */
 	@SuppressWarnings("unused")
@@ -77,7 +76,7 @@ public class AVLTree<E> extends BST<E> {
 		}
 	}
 	/**
-	 * 恢复平衡
+	 * ❗️核心方法：恢复平衡
 	 * @param grand 高度最低的那个不平衡节点
 	 */
 	private void rebalance(Node<E> grand) {

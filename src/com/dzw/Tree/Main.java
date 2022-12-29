@@ -1,10 +1,14 @@
 package com.dzw.Tree;
-
 import com.dzw.Tree.BinarySearchTree.Visitor;
 import com.dzw.Utils.Files;
 import com.dzw.Utils.printer.BinaryTrees;
 import com.dzw.models.Person;
+import com.dzw.Tree.*;
 import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 /**
  *	二叉树 testcase
  */
@@ -149,7 +153,7 @@ public class Main {
 		for (int i = 0; i < data.length; i++) {
 			bst.add(data[i]);
 		}
-		
+
 //		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
 //		for (int i = 0; i < 10; i++) {
 //			bst.add((int)(Math.random() * 100));
@@ -256,11 +260,108 @@ public class Main {
 		});
 		System.out.println();
 	}
-	
+
+	static void testReaBlackTree1() {
+
+	}
+
+	static void testReaBlackTree2() {
+		Integer data[] = new Integer[] {
+				67, 52, 92, 96, 53, 95, 13, 63, 34, 82, 76, 54, 9, 68, 39
+		};
+
+		AVLTree<Integer> avl = new AVLTree<>();
+		for (int i = 0; i < data.length; i++) {
+			avl.add(data[i]);
+//			System.out.println("【" + data[i] + "】");
+//			BinaryTrees.println(avl);
+//			System.out.println("---------------------------------------");
+		}
+
+//		for (int i = 0; i < data.length; i++) {
+//			avl.remove(data[i]);
+//			System.out.println("【" + data[i] + "】");
+//			BinaryTrees.println(avl);
+//			System.out.println("---------------------------------------");
+//		}
+
+
+		BinaryTrees.println(avl);
+	}
+
+	static void testReaBlackTree3() {
+		List<Integer> data = new ArrayList<>();
+		for (int i = 0; i < 100_0000; i++) {
+			data.add((int)(Math.random() * 100_0000));
+		}
+
+		BST<Integer> bst = new BST<>();
+		for (int i = 0; i < data.size(); i++) {
+			bst.add(data.get(i));
+		}
+		for (int i = 0; i < data.size(); i++) {
+			bst.contains(data.get(i));
+		}
+		for (int i = 0; i < data.size(); i++) {
+			bst.remove(data.get(i));
+		}
+
+		AVLTree<Integer> avl = new AVLTree<>();
+		for (int i = 0; i < data.size(); i++) {
+			avl.add(data.get(i));
+		}
+		for (int i = 0; i < data.size(); i++) {
+			avl.contains(data.get(i));
+		}
+		for (int i = 0; i < data.size(); i++) {
+			avl.remove(data.get(i));
+		}
+	}
+
+	static void testReaBlackTree4() {
+		Integer data[] = new Integer[] {
+				55, 87, 56, 74, 96, 22, 62, 20, 70, 68, 90, 50
+		};
+
+		RedBlackTree<Integer> rb = new RedBlackTree<>();
+		for (int i = 0; i < data.length; i++) {
+			rb.add(data[i]);
+			System.out.println("【" + data[i] + "】");
+			BinaryTrees.println(rb);
+			System.out.println("---------------------------------------");
+		}
+	}
+
+	static void testReaBlackTree5() {
+		Integer data[] = new Integer[] {
+				55, 87, 56, 74, 96, 22, 62, 20, 70, 68, 90, 50
+		};
+
+		RedBlackTree<Integer> rb = new RedBlackTree<>();
+		for (int i = 0; i < data.length; i++) {
+			rb.add(data[i]);
+		}
+
+		BinaryTrees.println(rb);
+
+		for (int i = 0; i < data.length; i++) {
+			rb.remove(data[i]);
+			System.out.println("---------------------------------------");
+			System.out.println("【" + data[i] + "】");
+			BinaryTrees.println(rb);
+		}
+	}
+	public void testBTree() {}
 	public static void main(String[] args) {
 		test6();
 		test8();
 		test9();
+
+		testReaBlackTree1();
+		testReaBlackTree2();
+		testReaBlackTree3();
+		testReaBlackTree4();
+		testReaBlackTree5();
 
 	}
 }
