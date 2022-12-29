@@ -28,7 +28,7 @@
 9. 二叉搜索树 (binary search tree)
 10. AVL树 (AVL tree)
 11. B树(b tree)
-12. B+树和B*树（b+/b* tree）
+12. B+树和B\*树（b+、b\* tree）
 13. 红黑树（red black tree）
 14. 哈希表 （hash map）
 15. 二叉堆(binary heap)
