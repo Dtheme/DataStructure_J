@@ -23,17 +23,11 @@ import com.dzw.LinkedList.LinkedList;
 public class BTree<E extends Comparable<E>> {
 
     private int degree = 2;
-    // 阶数，通常取偶数
-    private int order = 2 * degree;
-    // 元素个数上限
-    private int max = order - 1;
+    private int order = 2 * degree;// 阶数，通常取偶数
+    private int max = order - 1;// 元素个数上限
     private int min = (int) Math.ceil(order / 2.0) - 1; // 元素个数下界，因为阶数是偶数所以其实就是degree-1
     private BTreeNode<E> root = new BTreeNode<>(); // 根节点。树都是由1个根节点构成，所有其它节点都直接或间接被根节点指向
     private int size; // 树的大小(即元素个数)
-
-    public BTree() {
-
-    }
 
     public BTree(int degree) {
         this.degree = degree;
