@@ -1,6 +1,7 @@
 package com.dzw.Tree;
 import com.dzw.LinkedList.LinkedList;
-
+import com.dzw.Utils.printer.BinaryTrees;
+import com.dzw.Tree.BinaryTree;
 /**
  * BTree
  * BTree是完全平衡多叉查找树，所以这里不能继承BST；
@@ -20,7 +21,7 @@ import com.dzw.LinkedList.LinkedList;
  * a 除根节点外每个节点(包括叶节点)至少m/2-1(向上取整)个元素；如果树非空，则根节点至少1个元素；
  * b 每个节点至多m-1个元素(即至多m个子节点)
  */
-public class BTree<E extends Comparable<E>> {
+public class BTree<E extends  Comparable<E>> {
 
     private int degree = 2;
     private int order = 2 * degree;// 阶数，通常取偶数
@@ -28,6 +29,11 @@ public class BTree<E extends Comparable<E>> {
     private int min = (int) Math.ceil(order / 2.0) - 1; // 元素个数下界，因为阶数是偶数所以其实就是degree-1
     private BTreeNode<E> root = new BTreeNode<>(); // 根节点。树都是由1个根节点构成，所有其它节点都直接或间接被根节点指向
     private int size; // 树的大小(即元素个数)
+
+    //构造方法
+    public BTree(){
+
+    }
 
     public BTree(int degree) {
         this.degree = degree;
@@ -78,15 +84,15 @@ public class BTree<E extends Comparable<E>> {
      * @param element 插入新元素
      * @return
      */
-    public boolean insert(E element) {
-        boolean result = insert(root, element);
+    public boolean add(E element) {
+        boolean result = add(root, element);
         if (result) {
             size++;
         }
         return result;
     }
 
-    private boolean insert(BTreeNode<E> root, E element) {
+    private boolean add(BTreeNode<E> root, E element) {
         if (root == null || element == null) {
             return false;
         }
@@ -96,9 +102,9 @@ public class BTree<E extends Comparable<E>> {
             newNode.addNode(root);
             newNode.leaf = false; // 因为子节点列表nodeList有元素，所以不是叶子节点
             split(newNode, 0);
-            return insertWithoutFull(newNode, element);
+            return addWithoutFull(newNode, element);
         } else {
-            return insertWithoutFull(root, element);
+            return addWithoutFull(root, element);
         }
     }
 
@@ -110,7 +116,7 @@ public class BTree<E extends Comparable<E>> {
      * @param element 元素
      * @return
      */
-    private boolean insertWithoutFull(BTreeNode<E> root, E element) {
+    private boolean addWithoutFull(BTreeNode<E> root, E element) {
         if (root == null || element == null) {
             return false;
         }
@@ -139,7 +145,7 @@ public class BTree<E extends Comparable<E>> {
                     i++;
                 }
             }
-            return insertWithoutFull(root.getNode(i), element);
+            return addWithoutFull(root.getNode(i), element);
         }
     }
 
@@ -203,12 +209,13 @@ public class BTree<E extends Comparable<E>> {
      * @param element
      * @return
      */
-    public boolean delete(E element) {
+    public boolean remove(E element) {
+
         Result<E> result = search(element);
         if (result == null) {
             return false;
         }
-        delete(root, element);
+        remove(root, element);
         size--;
         return true;
     }
@@ -220,7 +227,7 @@ public class BTree<E extends Comparable<E>> {
      * @param element
      * @return
      */
-    private void delete(BTreeNode<E> root, E element) {
+    private void remove(BTreeNode<E> root, E element) {
         int i = 0;
         while (i < root.n && element.compareTo(root.getElement(i)) > 0) { // 注意：数组下标从0开始
             i++;
@@ -236,13 +243,13 @@ public class BTree<E extends Comparable<E>> {
                     E newElement = leftNode.elementsList.getLast();
                     root.elementsList.remove(i);
                     root.addElement(newElement);
-                    delete(leftNode, newElement);
+                    remove(leftNode, newElement);
                 } else if (rightNode.n > min) { // 情形2b
                     // 情形2b与情形2a是对称情形
                     E newElement = rightNode.elementsList.getFirst();
                     root.elementsList.remove(i);
                     root.addElement(newElement);
-                    delete(rightNode, newElement);
+                    remove(rightNode, newElement);
                 } else { // 情形2c
                     leftNode.addElement(element);
                     leftNode.n++;
@@ -262,7 +269,7 @@ public class BTree<E extends Comparable<E>> {
                         // 树的高度缩减1
                         this.root = leftNode;
                     }
-                    delete(leftNode, element);
+                    remove(leftNode, element);
                 }
             }
         } else { // 元素在当前节点下标为i的子树中
@@ -279,7 +286,7 @@ public class BTree<E extends Comparable<E>> {
                     if (!childNode.leaf) { // 左邻兄弟节点的最后子节点也要借过去
                         childNode.nodeList.addFirst(leftNode.nodeList.removeLast());
                     }
-                    delete(childNode, element);
+                    remove(childNode, element);
                 } else if (i < root.n && root.getNode(i + 1).n > min) { // 情形3b
                     // childNode的右邻兄弟节点有可借元素
 
@@ -292,7 +299,7 @@ public class BTree<E extends Comparable<E>> {
                     if (!childNode.leaf) {// 右邻兄弟节点的第一个子节点也要借过去
                         childNode.nodeList.addLast(rightNode.nodeList.removeFirst());
                     }
-                    delete(childNode, element);
+                    remove(childNode, element);
                 } else { // 情形3c
                     // childNode的相邻兄弟节点无可借元素(注意：肯定有相邻兄弟节点)
                     // 当前节点要么是根节点，要么元素个数必然大于min
@@ -332,10 +339,10 @@ public class BTree<E extends Comparable<E>> {
                         // 树的高度缩减1
                         this.root = childNode;
                     }
-                    delete(childNode, element);
+                    remove(childNode, element);
                 }
             } else {
-                delete(childNode, element);
+                remove(childNode, element);
             }
         }
     }
@@ -357,7 +364,7 @@ public class BTree<E extends Comparable<E>> {
         System.out.println("===前序遍历：===");
         System.out.print("\t");
         preOrder(root);
-        System.out.println("\n=====完毕=====");
+        System.out.println("\n=====前序遍历结束=====");
     }
 
     /**
@@ -381,7 +388,7 @@ public class BTree<E extends Comparable<E>> {
         System.out.println("===中序遍历：===");
         System.out.print("\t");
         inOrder(root);
-        System.out.println("\n=====完毕=====");
+        System.out.println("\n=====中序遍历结束=====");
     }
 
     /**
@@ -407,7 +414,7 @@ public class BTree<E extends Comparable<E>> {
         System.out.println("===后序遍历：===");
         System.out.print("\t");
         postOrder(root);
-        System.out.println("\n=====完毕=====");
+        System.out.println("\n=====后序遍历结束=====");
     }
 
     /**
@@ -509,6 +516,17 @@ public class BTree<E extends Comparable<E>> {
 
         public void removeLastNode() {
             nodeList.removeLast();
+        }
+
+        @Override
+        public String toString() {
+            String str = "";
+            for (int i = 0; i < elementsList.size(); i++) {
+                E ele = elementsList.get(i);
+                String ele2String = ele.toString();
+                  str = str + ele2String;
+            }
+            return str;
         }
     }
 }

@@ -4,10 +4,8 @@ import com.dzw.Utils.Files;
 import com.dzw.Utils.printer.BinaryTrees;
 import com.dzw.models.Person;
 import com.dzw.Tree.*;
-import java.util.Comparator;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
+import java.util.*;
 
 /**
  *	二叉树 testcase
@@ -261,11 +259,11 @@ public class Main {
 		System.out.println();
 	}
 
-	static void testReaBlackTree1() {
+	static void testRedBlackTree1() {
 
 	}
 
-	static void testReaBlackTree2() {
+	static void testRedBlackTree2() {
 		Integer data[] = new Integer[] {
 				67, 52, 92, 96, 53, 95, 13, 63, 34, 82, 76, 54, 9, 68, 39
 		};
@@ -289,7 +287,7 @@ public class Main {
 		BinaryTrees.println(avl);
 	}
 
-	static void testReaBlackTree3() {
+	static void testRedBlackTree3() {
 		List<Integer> data = new ArrayList<>();
 		for (int i = 0; i < 100_0000; i++) {
 			data.add((int)(Math.random() * 100_0000));
@@ -318,7 +316,7 @@ public class Main {
 		}
 	}
 
-	static void testReaBlackTree4() {
+	static void testRedBlackTree4() {
 		Integer data[] = new Integer[] {
 				55, 87, 56, 74, 96, 22, 62, 20, 70, 68, 90, 50
 		};
@@ -332,7 +330,7 @@ public class Main {
 		}
 	}
 
-	static void testReaBlackTree5() {
+	static void testRedBlackTree5() {
 		Integer data[] = new Integer[] {
 				55, 87, 56, 74, 96, 22, 62, 20, 70, 68, 90, 50
 		};
@@ -351,17 +349,32 @@ public class Main {
 			BinaryTrees.println(rb);
 		}
 	}
-	public void testBTree() {}
+	static void testBTree() {
+		Integer data[] = new Integer[] {
+				55, 87, 56, 74, 96, 22, 62, 20, 70, 68, 90, 50
+		};
+
+		BTree<Integer> bT = new BTree<>();
+		for (int i = 0; i < data.length; i++) {
+			bT.add(data[i]);
+		}
+//		for (int i = 0; i < data.length; i++) {
+//			bT.remove(data[i]);
+//			System.out.println("---------------------------------------");
+//			System.out.println("【" + data[i] + "】");
+//			System.out.println(bT.toString());
+//		}
+	}
 	public static void main(String[] args) {
-		test6();
-		test8();
-		test9();
-
-		testReaBlackTree1();
-		testReaBlackTree2();
-		testReaBlackTree3();
-		testReaBlackTree4();
-		testReaBlackTree5();
-
+//		test6();
+//		test8();
+//		test9();
+//
+//		testRedBlackTree1();
+//		testRedBlackTree2();
+//		testRedBlackTree3();
+//		testRedBlackTree4();
+//		testRedBlackTree5();
+		testBTree();
 	}
 }
