@@ -2,9 +2,7 @@ package com.dzw.Utils.printer;
 import com.dzw.Tree.BinaryTreeInfo;
 
 /**
- * 二叉树打印工具
- * @author MJ Lee
- *
+ * 第三方二叉树打印工具
  */
 public abstract class Printer {
 	/**

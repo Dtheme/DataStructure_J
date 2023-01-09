@@ -19,7 +19,6 @@ import java.util.Queue;
      │     │     │     │
     146   445   600   800
     
- * @author MJ Lee
  *
  */
 public class LevelOrderPrinter extends Printer {

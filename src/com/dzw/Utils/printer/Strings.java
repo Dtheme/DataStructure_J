@@ -2,8 +2,7 @@ package com.dzw.Utils.printer;
 
 
 /**
- * 二叉树打印工具
- * @author MJ Lee
+ * 第三方二叉树打印工具
  *
  */
 public class Strings {

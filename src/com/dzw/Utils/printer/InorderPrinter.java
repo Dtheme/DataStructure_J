@@ -20,7 +20,6 @@ import com.dzw.Tree.BinaryTreeInfo;
  └──12
     └──9
 
- * @author MJ Lee
  */
 public class InorderPrinter extends Printer {
 	private static String rightAppend;

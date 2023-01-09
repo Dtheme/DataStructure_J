@@ -1,5 +1,10 @@
 package com.dzw.models;
 
+/**
+ * 用于测试泛型
+ */
+
+@SuppressWarnings({"unused"})
 public class Person implements Comparable<Person> {
 	private int age;
 	private String name;
@@ -29,8 +34,7 @@ public class Person implements Comparable<Person> {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
-		if (obj instanceof Person) {
-			Person person  = (Person) obj;
+		if (obj instanceof Person person) {
 			return this.age == person.age;
 		}
 		return false;
@@ -38,9 +42,6 @@ public class Person implements Comparable<Person> {
 
 	@Override
 	public int compareTo(Person e) {
-//		if (age > e.age) return 1;
-//		if (age < e.age) return -1;
-//		return 0;
 		return age - e.age;
 	}
 /**
