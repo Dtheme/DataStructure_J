@@ -1,6 +1,7 @@
 package com.dzw.Tree;
 import com.dzw.Tree.BinarySearchTree.Visitor;
 import com.dzw.Utils.Files;
+import com.dzw.Utils.FileInfo;
 import com.dzw.Utils.printer.BinaryTrees;
 import com.dzw.models.Person;
 import com.dzw.Tree.*;
@@ -70,7 +71,7 @@ public class Main {
 		
 		String str = BinaryTrees.printString(bst);
 		str += "\n";
-		Files.writeToFile("F:/1.txt", str, true);
+		Files.writeToFile("/Users/dzw/Desktop/output", str, true);
 		
 		// BinaryTrees.println(bst);
 	}
