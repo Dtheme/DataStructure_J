@@ -43,6 +43,7 @@ public final class BinaryTrees {
 		return new LevelOrderPrinter(tree);
 	}
 
+
 	public enum PrintStyle {
 		LEVEL_ORDER, INORDER
 	}

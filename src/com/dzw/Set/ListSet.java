@@ -2,6 +2,10 @@ package com.dzw.Set;
 
 import com.dzw.LinkedList.*;
 import com.dzw.Set.list.List;
+
+/**
+ * 	使用list实现的set
+ */
 public class ListSet<E> implements Set<E> {
 	private List<E> list = (List<E>) new LinkedList<>();
 	

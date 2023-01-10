@@ -1,5 +1,8 @@
 package com.dzw.Set;
 
+/**
+ *  set实现的头文件
+ */
 public interface Set<E> {
 	int size();
 	boolean isEmpty();

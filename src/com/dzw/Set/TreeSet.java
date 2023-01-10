@@ -3,6 +3,10 @@ package com.dzw.Set;
 import com.dzw.Map.TreeMap;
 import com.dzw.Map.Map;
 
+/**
+ * 	使用TreeMap实现的set
+ * 	由于Java的treeMap是用red black tree和链表实现 所以这个可以理解为用红黑树实现
+ */
 public class TreeSet<E> implements Set<E> {
 	Map<E, Object> map = new TreeMap<>(); 
 
