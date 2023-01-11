@@ -13,6 +13,9 @@
 4. 算法导论 <原书第三版> 中文版
 5. [B站redis源码解析:复习hash和跳表](https://www.bilibili.com/video/BV1Jq4y1p7Rw/?spm_id_from=333.337.search-card.all.click&vd_source=e144372d05071b4e4bee1554f7a49a43)
 6. [B树参考论文](https://dl.acm.org/doi/10.1145/356770.356776)
+7. [布隆过滤器的误判率问题](https://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html)
+8. [布隆过滤器参考论文：布谷过滤器（Cuckoo Filter）](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
+9. 上面可视化网站没有这个数据结构，所以补充一个：[布隆过滤器playground](https://www.jasondavies.com/bloomfilter/)
 
 ### 计划实现的数据结构：
 （如果最终没有实现将会从表中移除...）
@@ -31,13 +34,15 @@
 12. B+树和B\*树（b+、b\* tree）
 13. 红黑树（red black tree）
 14. 哈希表 （hash map）
-15. 二叉堆(binary heap)
-16. 优先级队列(Porioity Queue)
-17. 哈夫曼树(Huffman tree)
-18. 并查集(union find)
-19. 跳表(skip list)
-20. 图(Graph)
-21. 图的搜索：DFS/BFS
-22. 最小生成树：Dijkstra、BellmanFord、Floyd
-23. 串(string matching)
-24. 字符串匹配：KMP（Knuth-Morris-pratt）、BM(Boyer-Moore)、RK(Rabin-Karp)、Sunday
+15. 布隆过滤器（Cuckoo Filter/bloom filter）
+16. 二叉堆(binary heap)
+17. 优先级队列(Porioity Queue)
+18. 哈夫曼树(Huffman tree)
+19. 并查集(union find)
+20. 跳表(skip list)
+21. 图(Graph)
+22. 图的搜索：DFS/BFS
+23. 最小生成树：Dijkstra、BellmanFord、Floyd
+24. 串(string matching)
+25. 字符串匹配：KMP（Knuth-Morris-pratt）、BM(Boyer-Moore)、RK(Rabin-Karp)、Sunday
+

@@ -1,5 +1,7 @@
 package com.dzw.Map;
 
+import sun.lwawt.macosx.CPrinterDevice;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -200,7 +202,6 @@ public class TreeMap<K, V> implements Map<K, V> {
 			black(node);
 			return;
 		}
-		
 		Node<K, V> parent = node.parent;
 		if (parent == null) return;
 		
@@ -262,7 +263,7 @@ public class TreeMap<K, V> implements Map<K, V> {
 					rotateLeft(sibling);
 					sibling = parent.left;
 				}
-				
+
 				color(sibling, colorOf(parent));
 				black(sibling.left);
 				black(parent);
@@ -326,7 +327,7 @@ public class TreeMap<K, V> implements Map<K, V> {
 		}
 		return null;
 	}
-	
+
 	private void afterPut(Node<K, V> node) {
 		Node<K, V> parent = node.parent;
 		
