@@ -34,7 +34,7 @@
 12. B+树和B\*树（b+、b\* tree）
 13. 红黑树（red black tree）
 14. 哈希表 （hash map）
-15. 布隆过滤器（Cuckoo Filter/bloom filter）
+15. 布隆过滤器（bloom filter）
 16. 二叉堆(binary heap)
 17. 优先级队列(Porioity Queue)
 18. 哈夫曼树(Huffman tree)
