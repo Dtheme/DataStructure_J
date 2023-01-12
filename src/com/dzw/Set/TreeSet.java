@@ -1,50 +1,57 @@
 package com.dzw.Set;
 
-import com.dzw.Map.TreeMap;
-import com.dzw.Map.Map;
+import java.util.Comparator;
 
-/**
- * 	使用TreeMap实现的set
- * 	由于Java的treeMap是用red black tree和链表实现 所以这个可以理解为用红黑树实现
- */
+import com.dzw.Tree.BinaryTree;
+import com.dzw.Tree.RedBlackTree;
+
 public class TreeSet<E> implements Set<E> {
-	Map<E, Object> map = new TreeMap<>(); 
+	private RedBlackTree<E> tree;
+
+	public TreeSet() {
+		this(null);
+	}
+
+	public TreeSet(Comparator<E> comparator) {
+		tree = new RedBlackTree<>(comparator);
+	}
 
 	@Override
 	public int size() {
-		return map.size();
+		return tree.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return map.isEmpty();
+		return tree.isEmpty();
 	}
 
 	@Override
 	public void clear() {
-		map.clear();
+		tree.clear();
 	}
 
 	@Override
 	public boolean contains(E element) {
-		return map.containsKey(element);
+		return tree.contains(element);
 	}
 
 	@Override
 	public void add(E element) {
-		map.put(element, null);
+		tree.add(element);
 	}
 
 	@Override
 	public void remove(E element) {
-		map.remove(element);
+		tree.remove(element);
 	}
 
 	@Override
 	public void traversal(Visitor<E> visitor) {
-		map.traversal(new Map.Visitor<>() {
-			public boolean visit(E key, Object value) {
-				return visitor.visit(key);
+		tree.inorder(new BinaryTree.Visitor<E>() {
+			@Override
+			public boolean visit(E element) {
+				return visitor.visit(element);
 			}
 		});
 	}

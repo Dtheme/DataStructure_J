@@ -34,7 +34,8 @@ public class Person implements Comparable<Person> {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
-		if (obj instanceof Person person) {
+		if (obj instanceof Person) {
+			Person person  = (Person) obj;
 			return this.age == person.age;
 		}
 		return false;
