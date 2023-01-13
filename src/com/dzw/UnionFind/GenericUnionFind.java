@@ -1,13 +1,14 @@
-package com.dzw.Graph;
+package com.dzw.UnionFind;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /**
- *  目前只有一些基础实现 暂时
+ *  UF相关的代码逻辑都非常简单，但是都比较抽象，最好结合其他资料看
+ * @param <V>
  */
-public class UnionFind<V> {
+public class GenericUnionFind<V> {
 	private Map<V, Node<V>> nodes = new HashMap<>();
 
 	public void makeSet(V v) {

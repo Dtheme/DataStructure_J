@@ -19,7 +19,7 @@ public class Main {
 		
 		// 数组
 		String[] urls = {};
-		BloomFilter<String> bf1 = new BloomFilter<String>(100000000, 0.01);
+		BloomFilter<String> bf1 = new BloomFilter<String>(1000000, 0.01);
 		
 		for (String url : urls) {
 			if (bf1.put(url) == false) continue;

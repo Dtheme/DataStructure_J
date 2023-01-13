@@ -1,7 +1,8 @@
 package com.dzw.BloomFilter;
 
 /**
- * ❗️实现得不好,只能用来参考一下实现大致逻辑，细节有非常多可以优化的地方，目前暂不支持过大数据量的计算
+ * ❗️实现得毕竟粗糙,只能用来参考一下实现大致逻辑，细节有非常多可以优化的地方，
+ * 	bits最大位数只支持Int_Max,也没有专门设计hash函数，直接用java的hashcode代表了个意思
  */
 public class BloomFilter<T> {
 	/**

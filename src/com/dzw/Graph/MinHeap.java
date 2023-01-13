@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 /**
  * 二叉堆（最小堆）
+ * 单独复制出来的一份
  */
 @SuppressWarnings("unchecked")
 public class MinHeap<E> {
