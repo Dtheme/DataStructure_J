@@ -1,18 +1,18 @@
 package com.dzw.UnionFind;
 
+import java.util.Arrays;
+
 /**
  * Quick Union - 基于size的优化
  */
 public class UnionFind_QU_S extends UnionFind_QU {
-	private int[] sizes;
+	private final int[] sizes;
 
 	public UnionFind_QU_S(int capacity) {
 		super(capacity);
-		
+
 		sizes = new int[capacity];
-		for (int i = 0; i < sizes.length; i++) {
-			sizes[i] = 1;
-		}
+		Arrays.fill(sizes, 1);
 	}
 
 	/**

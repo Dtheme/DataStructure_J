@@ -9,7 +9,11 @@ import java.util.Objects;
  * @param <V>
  */
 public class GenericUnionFind<V> {
-	private Map<V, Node<V>> nodes = new HashMap<>();
+	private final Map<V, Node<V>> nodes;
+
+	public GenericUnionFind() {
+		nodes = new HashMap<>();
+	}
 
 	public void makeSet(V v) {
 		if (nodes.containsKey(v)) return;

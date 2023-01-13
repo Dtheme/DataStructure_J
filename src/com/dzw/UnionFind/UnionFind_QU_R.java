@@ -1,18 +1,18 @@
 package com.dzw.UnionFind;
 
+import java.util.Arrays;
+
 /**
  * Quick Union - 基于rank的优化
  */
 public class UnionFind_QU_R extends UnionFind_QU {
-	private int[] ranks;
+	private final int[] ranks;
 
 	public UnionFind_QU_R(int capacity) {
 		super(capacity);
 
 		ranks = new int[capacity];
-		for (int i = 0; i < ranks.length; i++) {
-			ranks[i] = 1;
-		}
+		Arrays.fill(ranks, 1);
 	}
 	
 	public void union(int v1, int v2) {
