@@ -15,6 +15,7 @@
 6. [B树参考论文](https://dl.acm.org/doi/10.1145/356770.356776)
 7. [布隆过滤器的误判率问题](https://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html)
 8. [布隆过滤器参考论文：布谷过滤器（Cuckoo Filter）](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
+9. [布隆过滤器参考论文：可逆布隆过滤器（Invertible Bloom Filters）](https://arxiv.org/pdf/0704.3313.pdf)
 9. 上面可视化网站没有这个数据结构，所以补充一个：[布隆过滤器playground](https://www.jasondavies.com/bloomfilter/)
 
 ### 计划实现的数据结构：
