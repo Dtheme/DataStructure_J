@@ -148,7 +148,6 @@ public class AVLTree<E> extends BST<E> {
 		parent.left = grand;
 		afterRotate(grand, parent, child);
 	}
-
 	/**
 	 * 右旋
 	 * @param grand gradeparent节点 笔记里面的g节点
