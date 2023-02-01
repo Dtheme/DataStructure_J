@@ -16,7 +16,7 @@
 7. [布隆过滤器的误判率问题](https://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html)
 8. [布谷过滤器（Cuckoo Filter）](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
 9. [可逆布隆过滤器（Invertible Bloom Filters）](https://arxiv.org/pdf/0704.3313.pdf)
-10. 上面可视化网站没有这个数据结构，所以补充一个：[布隆过滤器playground](https://www.jasondavies.com/bloomfilter/)
+10. 上面可视化网站没有这个数据结构，所以补充一个：[布隆过滤器Bloom Filters playground](https://www.jasondavies.com/bloomfilter/)
 
 ### 计划实现的数据结构：
 （如果最终没有实现将会从表中移除...）
@@ -32,7 +32,7 @@
 9. 二叉搜索树 (binary search tree)
 10. AVL树 (AVL tree)
 11. B树(b tree)
-12. ~~B+树和B\*树（b+、b\* tree~~）
+12. ~~B+树和B\*树（b+、b\* tree）~~
 13. 红黑树（red black tree）
 14. 哈希表 （hash map）
 15. 布隆过滤器（bloom filter）
