@@ -6,11 +6,11 @@ import java.util.Stack;
 /**
  *  二叉搜索树相关的 添加、删除、前中后序的遍历操作都写在这个类，基础代码都是其他类copy的 主要用来写遍历相关的逻辑 包含递归和非递归的思路）
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class BinarySearchTree<E> implements BinaryTreeInfo {
 	private int size;
 	private Node<E> root;
-	private Comparator<E> comparator;
+	private final Comparator<E> comparator;
 	
 	public BinarySearchTree() {
 		this(null);
@@ -49,8 +49,10 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 		
 		// 添加的不是第一个节点
 		// 找到父节点
-		Node<E> parent = root;
-		Node<E> node = root;
+		Node<E> parent;
+		parent = root;
+		Node<E> node;
+		node = root;
 		int cmp = 0;
 		do {
 			cmp = compare(element, node.element);
@@ -374,41 +376,14 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 			
 			if (node.right != null) {
 				queue.offer(node.right);
-			} else { // node.right == null
+			// node.right == null
+			} else {
 				leaf = true;
 			}
 		}
 		
 		return true;
 	}
-	
-//	public boolean isComplete() {
-//		if (root == null) return false;
-//		
-//		Queue<Node<E>> queue = new LinkedList<>();
-//		queue.offer(root);
-//		
-//		boolean leaf = false;
-//		while (!queue.isEmpty()) {
-//			Node<E> node = queue.poll();
-//			if (leaf && !node.isLeaf()) return false;
-//
-//			if (node.left != null && node.right != null) {
-//				queue.offer(node.left);
-//				queue.offer(node.right);
-//			} else if (node.left == null && node.right != null) {
-//				return false;
-//			} else { // 后面遍历的节点都必须是叶子节点
-//				leaf = true;
-//				if (node.left != null) {
-//					queue.offer(node.left);
-//				}
-//			}
-//		}
-//		
-//		return true;
-//	}
-	
 	public int height() {
 		if (root == null) return 0;
 		

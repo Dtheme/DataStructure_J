@@ -8,7 +8,7 @@ import java.util.Objects;
  *  目前只有一些基础实现 暂时
  */
 public class UnionFind<V> {
-	private Map<V, Node<V>> nodes = new HashMap<>();
+	private final Map<V, Node<V>> nodes = new HashMap<>();
 
 	public void makeSet(V v) {
 		if (nodes.containsKey(v)) return;

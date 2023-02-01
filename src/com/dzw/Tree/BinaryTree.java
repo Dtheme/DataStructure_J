@@ -9,7 +9,7 @@ import com.dzw.Tree.BinaryTreeInfo;
  *  是否空、清空二叉树、前、中、后、层 遍历
  *  求树size、树高、前驱节点、后继节点、兄弟节点等
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class BinaryTree<E> implements BinaryTreeInfo {
     protected int size;
     protected Node<E> root;

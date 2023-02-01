@@ -1,7 +1,7 @@
 package com.dzw.Hash;
-import com.dzw.Hash.Map;
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 /**
@@ -141,6 +141,7 @@ public class TreeMap<K, V> implements Map<K, V> {
 	
 	private boolean valEquals(V v1, V v2) {
 		return v1 == null ? v2 == null : v1.equals(v2);
+//		return Objects.equals(v1, v2);系统的这个是一样的 为了表达逻辑 还是自己写表达式
 	}
 	
 	private V remove(Node<K, V> node) {

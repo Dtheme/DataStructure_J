@@ -106,9 +106,8 @@ public class SingleLinkedList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 获取index位置对应的节点对象
-	 * @param index
-	 * @return
+	 * @param index 获取index位置对应的节点对象
+	 * @return index处节点对象
 	 */
 	private Node<E> node(int index) {
 		rangeCheck(index);

@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import com.dzw.Tree.BinaryTreeInfo;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
 	private E[] elements;
 	private static final int DEFAULT_CAPACITY = 10;
@@ -18,9 +18,7 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
 			size = elements.length;
 			int capacity = Math.max(elements.length, DEFAULT_CAPACITY);
 			this.elements = (E[]) new Object[capacity];
-			for (int i = 0; i < elements.length; i++) {
-				this.elements[i] = elements[i];
-			}
+			System.arraycopy(elements, 0, this.elements, 0, elements.length);
 			heapify();
 		}
 	}
@@ -92,7 +90,14 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
 	 * 批量建堆
 	 */
 	private void heapify() {
+		// 如果没有元素 直接返回 检查边界值
+		if (size <= 0) return;
 		// 自上而下的上滤
+		for (int i = 0; i< size; i++){
+			//先从下往上上滤
+			siftUp(i);
+		}
+
 //		for (int i = 1; i < size; i++) {
 //			siftUp(i);
 //		}
@@ -105,7 +110,7 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
 
 	/**
 	 * 让index位置的元素下滤
-	 * @param index
+	 * @param index 下滤元素的位置
 	 */
 	private void siftDown(int index) {
 		E element = elements[index];
@@ -142,23 +147,9 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
 
 	/**
 	 * 让index位置的元素上滤
-	 * @param index
+	 * @param index 上滤元素的位置
 	 */
 	private void siftUp(int index) {
-//		E e = elements[index];
-//		while (index > 0) {
-//			int pindex = (index - 1) >> 1;
-//			E p = elements[pindex];
-//			if (compare(e, p) <= 0) return;
-//
-//			// 交换index、pindex位置的内容
-//			E tmp = elements[index];
-//			elements[index] = elements[pindex];
-//			elements[pindex] = tmp;
-//
-//			// 重新赋值index
-//			index = pindex;
-//		}
 		E element = elements[index];
 		while (index > 0) {
 			int parentIndex = (index - 1) >> 1;
@@ -181,9 +172,12 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
 		// 新容量为旧容量的1.5倍
 		int newCapacity = oldCapacity + (oldCapacity >> 1);
 		E[] newElements = (E[]) new Object[newCapacity];
-		for (int i = 0; i < size; i++) {
-			newElements[i] = elements[i];
-		}
+
+//		for (int i = 0; i < size; i++) {
+//			newElements[i] = elements[i];
+//		}
+		if (size >= 0) System.arraycopy(elements, 0, newElements, 0, size);
+
 		elements = newElements;
 	}
 

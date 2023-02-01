@@ -14,10 +14,8 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
-import com.dzw.Graph.MinHeap;
-import com.dzw.Graph.UnionFind;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class ListGraph<V, E> extends Graph<V, E> {
 	public ListGraph() {}
 	public ListGraph(WeightManager<E> weightManager) {
@@ -75,9 +73,9 @@ public class ListGraph<V, E> extends Graph<V, E> {
 		}
 	}
 	
-	private Map<V, Vertex<V, E>> vertices = new HashMap<>();
-	private Set<Edge<V, E>> edges = new HashSet<>();
-	private Comparator<Edge<V, E>> edgeComparator = (Edge<V, E> e1, Edge<V, E> e2) -> {
+	private final Map<V, Vertex<V, E>> vertices = new HashMap<>();
+	private final Set<Edge<V, E>> edges = new HashSet<>();
+	private final Comparator<Edge<V, E>> edgeComparator = (Edge<V, E> e1, Edge<V, E> e2) -> {
 		return weightManager.compare(e1.weight, e2.weight);
 	};
 	
@@ -92,9 +90,9 @@ public class ListGraph<V, E> extends Graph<V, E> {
 		});
 
 		System.out.println("[边]-------------------");
-		edges.forEach((Edge<V, E> edge) -> {
+		for (Edge<V, E> edge : edges) {
 			System.out.println(edge);
-		});
+		}
 	}
 
 	@Override
@@ -466,9 +464,8 @@ public class ListGraph<V, E> extends Graph<V, E> {
 	}
 	
 	/**
-	 * 从paths中挑一个最小的路径出来
-	 * @param paths
-	 * @return
+	 * @param paths 从paths中挑一个最小的路径出来
+	 * @return 最短路径
 	 */
 	private Entry<Vertex<V, E>, PathInfo<V, E>> getMinPath(Map<Vertex<V, E>, PathInfo<V, E>> paths) {
 		Iterator<Entry<Vertex<V, E>, PathInfo<V, E>>> it = paths.entrySet().iterator();
@@ -487,12 +484,14 @@ public class ListGraph<V, E> extends Graph<V, E> {
 		Map<V, Map<V, PathInfo<V, E>>> paths = new HashMap<>();
 		// 初始化
 		for (Edge<V, E> edge : edges) {
-			Map<V, PathInfo<V, E>> map = paths.get(edge.from.value);
-			if (map == null) {
-				map = new HashMap<>();
-				paths.put(edge.from.value, map);
-			}
-			
+			Map<V, PathInfo<V, E>> map = paths.computeIfAbsent(edge.from.value, k -> new HashMap<>());
+
+//			Map<V, PathInfo<V, E>> map = paths.get(edge.from.value);
+//			if (map == null) {
+//				map = new HashMap<>();
+//				paths.put(edge.from.value, map);
+//			}
+
 			PathInfo<V, E> pathInfo = new PathInfo<>(edge.weight);
 			pathInfo.edgeInfos.add(edge.info());
 			map.put(edge.to.value, pathInfo);

@@ -15,7 +15,7 @@ public class ArrayList<E> {
 	private static final int ELEMENT_NOT_FOUND = -1;
 	
 	public ArrayList(int capaticy) {
-		capaticy = (capaticy < DEFAULT_CAPACITY) ? DEFAULT_CAPACITY : capaticy;
+		capaticy = Math.max(capaticy, DEFAULT_CAPACITY);
 		elements = (E[]) new Object[capaticy];
 	}
 
@@ -33,42 +33,37 @@ public class ArrayList<E> {
 	}
 
 	/**
-	 * 元素的数量
-	 * @return
+	 * @return 元素的数量
 	 */
 	public int size() {
 		return size;
 	}
 
 	/**
-	 * 是否为空
-	 * @return
+	 * @return 是否为空
 	 */
 	public boolean isEmpty() {
 		 return size == 0;
 	}
 
 	/**
-	 * 是否包含某个元素
-	 * @param element
-	 * @return
+	 * @param element 是否包含元素element
+	 * @return  是否包含某个元素
 	 */
 	public boolean contains(E element) {
 		return indexOf(element) != ELEMENT_NOT_FOUND;
 	}
 
 	/**
-	 * 添加元素到尾部
-	 * @param element
+	 * @param element 添加元素element到尾部
 	 */
 	public void add(E element) {
 		add(size, element);
 	}
 
 	/**
-	 * 获取index位置的元素
-	 * @param index
-	 * @return
+	 * @param index 获取index位置的元素
+	 * @return 返回元素值
 	 */
 	public E get(int index) {
 		rangeCheck(index);
@@ -76,9 +71,8 @@ public class ArrayList<E> {
 	}
 
 	/**
-	 * 设置index位置的元素
-	 * @param index
-	 * @param element
+	 * @param index 设置index位置的元素
+	 * @param element 返回元素值
 	 * @return 原来的元素ֵ
 	 */
 	public E set(int index, E element) {
@@ -90,9 +84,8 @@ public class ArrayList<E> {
 	}
 
 	/**
-	 * 在index位置插入一个元素
-	 * @param index
-	 * @param element
+	 * @param index 在index位置插入一个元素
+	 * @param element 返回元素值
 	 */
 	public void add(int index, E element) {
 		rangeCheckForAdd(index);
@@ -107,9 +100,8 @@ public class ArrayList<E> {
 	}
 
 	/**
-	 * 删除index位置的元素
-	 * @param index
-	 * @return
+	 * @param index 删除index位置的元素
+	 * @return 返回删除的元素的值
 	 */
 	public E remove(int index) {
 		rangeCheck(index);
@@ -123,9 +115,8 @@ public class ArrayList<E> {
 	}
 
 	/**
-	 * 查看元素的索引
-	 * @param element
-	 * @return
+	 * @param element 查看元素element的索引
+	 * @return 返回element的索引
 	 */
 	public int indexOf(E element) {
 		if (element == null) {  // 1
@@ -140,20 +131,8 @@ public class ArrayList<E> {
 		return ELEMENT_NOT_FOUND;
 	}
 	
-//	public int indexOf2(E element) {
-//		for (int i = 0; i < size; i++) {
-//			if (valEquals(element, elements[i])) return i; // 2n
-//		}
-//		return ELEMENT_NOT_FOUND;
-//	}
-//	
-//	private boolean valEquals(Object v1, Object v2) {
-//		return v1 == null ? v2 == null : v1.equals(v2);
-//	}
-	
 	/**
-	 * 保证要有capacity的容量
-	 * @param capacity
+	 * @param capacity 保证要有capacity的容量
 	 */
 	private void ensureCapacity(int capacity) {
 		int oldCapacity = elements.length;
@@ -162,9 +141,7 @@ public class ArrayList<E> {
 		// 新容量为旧容量的1.5倍
 		int newCapacity = oldCapacity + (oldCapacity >> 1);
 		E[] newElements = (E[]) new Object[newCapacity];
-		for (int i = 0; i < size; i++) {
-			newElements[i] = elements[i];
-		}
+		if (size >= 0) System.arraycopy(elements, 0, newElements, 0, size);
 		elements = newElements;
 		
 		System.out.println(oldCapacity + "扩容为" + newCapacity);
@@ -197,10 +174,6 @@ public class ArrayList<E> {
 			}
 			
 			string.append(elements[i]);
-			
-//			if (i != size - 1) {
-//				string.append(", ");
-//			}
 		}
 		string.append("]");
 		return string.toString();

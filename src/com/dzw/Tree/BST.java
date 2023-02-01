@@ -5,9 +5,9 @@ import java.util.Comparator;
  * 二叉搜索树基类 包含基础的添加、删除、搜索能力
  * （为了方便后续编码添加的基础类 思路是一样的）
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class BST<E> extends BinaryTree<E> {
-    private Comparator<E> comparator;
+    private final Comparator<E> comparator;
 
     public BST() {
         this(null);

@@ -11,7 +11,7 @@ import java.util.*;
 /**
  *	二叉树 testcase
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unchecked","unused"})
 public class Main {
 	
 	private static class PersonComparator implements Comparator<Person> {
@@ -372,7 +372,7 @@ public class Main {
 //		test9();
 //
 //		testRedBlackTree1();
-//		testRedBlackTree2();
+		testRedBlackTree2();
 //		testRedBlackTree3();
 //		testRedBlackTree4();
 //		testRedBlackTree5();

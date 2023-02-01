@@ -1,10 +1,8 @@
 package com.dzw.Hash;
 
-import com.dzw.LinkedList.LinkedList;
-import com.dzw.Hash.Map;
-import com.dzw.Hash.Set;
+@SuppressWarnings("unused")
 public class LinkedHashSet<E> implements Set<E> {
-	private LinkedHashMap<E, Object> map = new LinkedHashMap<>();
+	private final LinkedHashMap<E, Object> map = new LinkedHashMap<>();
 
 	@Override
 	public int size() {

@@ -1,8 +1,7 @@
 package com.dzw.Hash;
 
 import java.util.Objects;
-
-@SuppressWarnings({ "rawtypes", "unchecked" })
+@SuppressWarnings({ "rawtypes", "unchecked", "unused"})
 public class LinkedHashMap<K, V> extends HashMap<K, V> {
 	private LinkedNode<K, V> first;
 	private LinkedNode<K, V> last;

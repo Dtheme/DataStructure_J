@@ -16,6 +16,7 @@ import java.util.Comparator;
  * 删除：平均时间复杂度，最坏情况时间复杂度 O(log(n))
  * 空间复杂度：平均时间复杂度，最坏情况时间复杂度 O(n)
  */
+@SuppressWarnings("unused")
 public class RedBlackTree<E> extends BBST<E> {
 	private static final boolean RED = false;
 	private static final boolean BLACK = true;

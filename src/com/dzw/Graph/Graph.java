@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+@SuppressWarnings({"unchecked","unused"})
 public abstract class Graph<V, E> {
 	protected WeightManager<E> weightManager;
 	

@@ -1,5 +1,5 @@
 package com.dzw.Map;
-
+@SuppressWarnings("unused")
 public interface Map<K, V> {
 	int size();
 	boolean isEmpty();

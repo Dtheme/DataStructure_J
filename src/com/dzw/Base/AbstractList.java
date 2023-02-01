@@ -6,33 +6,29 @@ public abstract class AbstractList<E> implements List<E> {
 	 */
 	protected int size;
 	/**
-	 * 元素的数量
-	 * @return
+	 * @return 元素的数量
 	 */
 	public int size() {
 		return size;
 	}
 
 	/**
-	 * 是否为空
-	 * @return
+	 * @return 是否为空
 	 */
 	public boolean isEmpty() {
 		 return size == 0;
 	}
 
 	/**
-	 * 是否包含某个元素
-	 * @param element
-	 * @return
+	 * @param element 是否包含某个元素element
+	 * @return  是否包含某个元素
 	 */
 	public boolean contains(E element) {
 		return indexOf(element) != ELEMENT_NOT_FOUND;
 	}
 
 	/**
-	 * 添加元素到尾部
-	 * @param element
+	 * @param element 添加元素到尾部
 	 */
 	public void add(E element) {
 		add(size, element);

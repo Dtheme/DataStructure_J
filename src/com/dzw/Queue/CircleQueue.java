@@ -70,8 +70,7 @@ public class CircleQueue<E> {
 	}
 	
 	/**
-	 * 保证要有capacity的容量
-	 * @param capacity
+	 * @param capacity 保证要有capacity的容量
 	 */
 	private void ensureCapacity(int capacity) {
 		int oldCapacity = elements.length;

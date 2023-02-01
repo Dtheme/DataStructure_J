@@ -4,7 +4,7 @@ import com.dzw.Arraylist.ArrayList_optimize;
 import com.dzw.Base.List;
 
 public class Stack<E> {
-	private List<E> list = new ArrayList_optimize<>();
+	private final List<E> list = new ArrayList_optimize<>();
 
 	public void clear() {
 		list.clear();

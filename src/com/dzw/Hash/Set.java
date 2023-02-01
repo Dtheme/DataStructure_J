@@ -1,5 +1,5 @@
 package com.dzw.Hash;
-
+@SuppressWarnings("unused")
 public interface Set<E> {
 	int size();
 	boolean isEmpty();

@@ -1,10 +1,8 @@
 package com.dzw.Hash;
-import com.dzw.Hash.Set;
-import com.dzw.Hash.HashMap;
-import com.dzw.Hash.Map;
 
+@SuppressWarnings("unused")
 public class HashSet<E> implements Set<E> {
-	private HashMap<E, Object> map = new HashMap<>();
+	private final HashMap<E, Object> map = new HashMap<>();
 
 	@Override
 	public int size() {

@@ -8,15 +8,15 @@ public class BloomFilter<T> {
 	/**
 	 * 二进制向量的长度(一共有多少个二进制位)
 	 */
-	private int bitSize;
+	private final int bitSize;
 	/**
 	 * 二进制向量
 	 */
-	private long[] bits;
+	private final long[] bits;
 	/**
 	 * 哈希函数的个数
 	 */
-	private int hashSize;
+	private final int hashSize;
 
 	/**
 	 * @param n 数据规模
@@ -105,7 +105,7 @@ public class BloomFilter<T> {
 	 */
 	private boolean get(int index) {
 		long value = bits[index / Long.SIZE];
-		return (value & (1 << (index % Long.SIZE))) != 0;
+		return (value & (1L << (index % Long.SIZE))) != 0;
 	}
 
 	private void nullCheck(T value) {

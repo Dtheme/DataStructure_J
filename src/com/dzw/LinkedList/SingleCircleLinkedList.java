@@ -1,7 +1,7 @@
 package com.dzw.LinkedList;
 
 import com.dzw.Base.AbstractList;
-
+@SuppressWarnings("unused")
 public class SingleCircleLinkedList<E> extends AbstractList<E> {
 	private Node<E> first;
 	
@@ -15,9 +15,7 @@ public class SingleCircleLinkedList<E> extends AbstractList<E> {
 		
 		@Override
 		public String toString() {
-			StringBuilder sb = new StringBuilder();
-			sb.append(element).append("_").append(next.element);
-			return sb.toString();
+			return element + "_" + next.element;
 		}
 	}
 
@@ -81,15 +79,14 @@ public class SingleCircleLinkedList<E> extends AbstractList<E> {
 
 	@Override
 	public int indexOf(E element) {
+		Node<E> node = first;
 		if (element == null) {
-			Node<E> node = first;
 			for (int i = 0; i < size; i++) {
 				if (node.element == null) return i;
 				
 				node = node.next;
 			}
 		} else {
-			Node<E> node = first;
 			for (int i = 0; i < size; i++) {
 				if (element.equals(node.element)) return i;
 				
@@ -100,9 +97,8 @@ public class SingleCircleLinkedList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 获取index位置对应的节点对象
-	 * @param index
-	 * @return
+	 * @param index 获取index位置对应的节点对象
+	 * @return index处的节点对象
 	 */
 	private Node<E> node(int index) {
 		rangeCheck(index);

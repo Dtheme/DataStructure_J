@@ -1,14 +1,13 @@
 package com.dzw.Hash;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
-import com.dzw.Hash.Map;
 import com.dzw.Utils.printer.*;
 import com.dzw.Tree.BinaryTreeInfo;
-import com.dzw.Tree.BinaryTree;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
+@SuppressWarnings({"unchecked", "rawtypes","unused"})
 public class HashMap<K, V> implements Map<K, V> {
 	private static final boolean RED = false;
 	private static final boolean BLACK = true;
@@ -35,9 +34,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	public void clear() {
 		if (size == 0) return;
 		size = 0;
-		for (int i = 0; i < table.length; i++) {
-			table[i] = null;
-		}
+		Arrays.fill(table, null);
 	}
 
 	@Override
@@ -138,14 +135,14 @@ public class HashMap<K, V> implements Map<K, V> {
 	public boolean containsValue(V value) {
 		if (size == 0) return false;
 		Queue<Node<K, V>> queue = new LinkedList<>();
-		for (int i = 0; i < table.length; i++) {
-			if (table[i] == null) continue;
-			
-			queue.offer(table[i]);
+		for (Node<K, V> kvNode : table) {
+			if (kvNode == null) continue;
+
+			queue.offer(kvNode);
 			while (!queue.isEmpty()) {
 				Node<K, V> node = queue.poll();
 				if (Objects.equals(value, node.value)) return true;
-				
+
 				if (node.left != null) {
 					queue.offer(node.left);
 				}
@@ -218,16 +215,18 @@ public class HashMap<K, V> implements Map<K, V> {
 	
 	private void resize() {
 		// 装填因子 <= 0.75
-		if (size / table.length <= DEFAULT_LOAD_FACTOR) return;
+		if ((size / table.length) <= DEFAULT_LOAD_FACTOR) {
+			return;
+		}
 		
 		Node<K, V>[] oldTable = table;
 		table = new Node[oldTable.length << 1];
 
 		Queue<Node<K, V>> queue = new LinkedList<>();
-		for (int i = 0; i < oldTable.length; i++) {
-			if (oldTable[i] == null) continue;
-			
-			queue.offer(oldTable[i]);
+		for (Node<K, V> kvNode : oldTable) {
+			if (kvNode == null) continue;
+
+			queue.offer(kvNode);
 			while (!queue.isEmpty()) {
 				Node<K, V> node = queue.poll();
 				if (node.left != null) {
@@ -236,7 +235,7 @@ public class HashMap<K, V> implements Map<K, V> {
 				if (node.right != null) {
 					queue.offer(node.right);
 				}
-				
+
 				// 挪动代码得放到最后面
 				moveNode(node);
 			}
@@ -398,7 +397,7 @@ public class HashMap<K, V> implements Map<K, V> {
 				node = node.left;
 			} else if (Objects.equals(k1, k2)) {
 				return node;
-			} else if (k1 != null && k2 != null 
+			} else if (k1 != null && k2 != null
 					&& k1 instanceof Comparable
 					&& k1.getClass() == k2.getClass()
 					&& (cmp = ((Comparable)k1).compareTo(k2)) != 0) {

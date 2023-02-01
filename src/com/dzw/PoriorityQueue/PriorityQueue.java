@@ -2,7 +2,7 @@ package com.dzw.PoriorityQueue;
 import com.dzw.Heap.BinaryHeap;
 import java.util.Comparator;
 
-
+@SuppressWarnings("unused")
 public class PriorityQueue<E> {
 	private BinaryHeap<E> heap;
 	

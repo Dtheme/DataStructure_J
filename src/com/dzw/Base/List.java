@@ -12,63 +12,54 @@ public interface List<E> {
 	void clear();
 
 	/**
-	 * 元素的数量
-	 * @return
+	 * @return 元素的数量
 	 */
 	int size();
 
 	/**
-	 * 是否为空
-	 * @return
+	 * @return 是否为空
 	 */
 	boolean isEmpty();
 
 	/**
-	 * 是否包含某个元素
-	 * @param element
-	 * @return
+	 * @param element 是否包含某个元素element
+	 * @return 是否包含某个元素
 	 */
 	boolean contains(E element);
 
 	/**
-	 * 添加元素到尾部
-	 * @param element
+	 * @param element 添加元素element到尾部
 	 */
 	void add(E element);
 
 	/**
-	 * 获取index位置的元素
-	 * @param index
-	 * @return
+	 * @param index 获取index位置的元素
+	 * @return index位置的元素值
 	 */
 	E get(int index);
 
 	/**
-	 * 设置index位置的元素
-	 * @param index
-	 * @param element
+	 * @param index 设置index位置的元素
+	 * @param element 元素值
 	 * @return 原来的元素ֵ
 	 */
 	E set(int index, E element);
 
 	/**
-	 * 在index位置插入一个元素
-	 * @param index
-	 * @param element
+	 * @param index 在index位置插入一个元素
+	 * @param element 插入的元素值
 	 */
 	void add(int index, E element);
 
 	/**
-	 * 删除index位置的元素
-	 * @param index
-	 * @return
+	 * @param index 删除index位置的元素
+	 * @return 删除的元素值
 	 */
 	E remove(int index);
 
 	/**
-	 * 查看元素的索引
-	 * @param element
-	 * @return
+	 * @param element 查看元素element的索引
+	 * @return element的索引
 	 */
 	int indexOf(E element);
 }

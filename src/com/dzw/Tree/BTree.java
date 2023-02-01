@@ -1,7 +1,5 @@
 package com.dzw.Tree;
 import com.dzw.LinkedList.LinkedList;
-import com.dzw.Utils.printer.BinaryTrees;
-import com.dzw.Tree.BinaryTree;
 /**
  * BTree
  * BTree是完全平衡多叉查找树，所以这里不能继承BST；
@@ -21,12 +19,13 @@ import com.dzw.Tree.BinaryTree;
  * a 除根节点外每个节点(包括叶节点)至少m/2-1(向上取整)个元素；如果树非空，则根节点至少1个元素；
  * b 每个节点至多m-1个元素(即至多m个子节点)
  */
+@SuppressWarnings("unused")
 public class BTree<E extends  Comparable<E>> {
 
     private int degree = 2;
-    private int order = 2 * degree;// 阶数，通常取偶数
-    private int max = order - 1;// 元素个数上限
-    private int min = (int) Math.ceil(order / 2.0) - 1; // 元素个数下界，因为阶数是偶数所以其实就是degree-1
+    private final int order = 2 * degree;// 阶数，通常取偶数
+    private final int max = order - 1;// 元素个数上限
+    private final int min = (int) Math.ceil(order / 2.0) - 1; // 元素个数下界，因为阶数是偶数所以其实就是degree-1
     private BTreeNode<E> root = new BTreeNode<>(); // 根节点。树都是由1个根节点构成，所有其它节点都直接或间接被根节点指向
     private int size; // 树的大小(即元素个数)
 
@@ -55,7 +54,7 @@ public class BTree<E extends  Comparable<E>> {
      * 查找
      *
      * @param element 查找元素
-     * @return
+     * @return 查询
      */
     public Result<E> search(E element) {
         return search(root, element);
@@ -82,7 +81,7 @@ public class BTree<E extends  Comparable<E>> {
     /**
      * 插入
      * @param element 插入新元素
-     * @return
+     * @return 插入是否成功
      */
     public boolean add(E element) {
         boolean result = add(root, element);
@@ -114,7 +113,7 @@ public class BTree<E extends  Comparable<E>> {
      *
      * @param root 根节点
      * @param element 元素
-     * @return
+     * @return 是否成功
      */
     private boolean addWithoutFull(BTreeNode<E> root, E element) {
         if (root == null || element == null) {
@@ -206,8 +205,8 @@ public class BTree<E extends  Comparable<E>> {
     /**
      * 删除
      *
-     * @param element
-     * @return
+     * @param element 删除元素
+     * @return 是否删除成功
      */
     public boolean remove(E element) {
 
@@ -223,9 +222,8 @@ public class BTree<E extends  Comparable<E>> {
     /**
      * 在参数root为根节点代表的树中删除元素element(element在树中)
      *
-     * @param root
-     * @param element
-     * @return
+     * @param root 根节点
+     * @param element 删除的元素
      */
     private void remove(BTreeNode<E> root, E element) {
         int i = 0;
@@ -347,19 +345,6 @@ public class BTree<E extends  Comparable<E>> {
         }
     }
 
-    public void widthOrder() {
-        widthOrder(root);
-    }
-
-    /**
-     * 广度优先遍历（层序遍历）
-     *
-     * @param root
-     */
-    private void widthOrder(BTreeNode<E> root) {
-        throw new UnsupportedOperationException("要想支持广度遍历需要增加节点属性");
-    }
-
     public void preOrder() {
         System.out.println("===前序遍历：===");
         System.out.print("\t");
@@ -371,7 +356,7 @@ public class BTree<E extends  Comparable<E>> {
      * 前序遍历
      * 深度遍历与前序遍历相同，亦即深度遍历
      *
-     * @param root
+     * @param root 根节点
      */
     private void preOrder(BTreeNode<E> root) {
         for (int i = 0; i < root.n; i++) {
@@ -395,7 +380,7 @@ public class BTree<E extends  Comparable<E>> {
      * 中序遍历
      * 中序遍历可以排序
      *
-     * @param root
+     * @param root 根节点
      */
     private void inOrder(BTreeNode<E> root) {
         boolean isNotLeaf = !root.leaf;
@@ -420,7 +405,7 @@ public class BTree<E extends  Comparable<E>> {
     /**
      * 后序遍历
      *
-     * @param root
+     * @param root 根节点
      */
     private void postOrder(BTreeNode<E> root) {
         boolean isNotLeaf = !root.leaf;
@@ -439,11 +424,11 @@ public class BTree<E extends  Comparable<E>> {
      * 表示元素位置的类
      * 类是public权限但构造方法私有化并且仅提供公有getter方法，是为让其它类仅仅只可以获取该类的属性
      *
-     * @param <E>
+     * @param <E> 查的元素
      */
     public static class Result<E extends Comparable<E>> {
-        private BTreeNode<E> node;
-        private int index;
+        private final BTreeNode<E> node;
+        private final int index;
 
         private Result(BTreeNode<E> node, int index) {
             this.node = node;
@@ -468,8 +453,8 @@ public class BTree<E extends  Comparable<E>> {
     public static class BTreeNode<E extends Comparable<E>> {
         private int n; // 元素个数
         private boolean leaf = true; // 是否叶子节点
-        private LinkedList<E> elementsList = new LinkedList<>(); // 元素列表
-        private LinkedList<BTreeNode<E>> nodeList = new LinkedList<>(); // 子节点列表
+        private final LinkedList<E> elementsList = new LinkedList<>(); // 元素列表
+        private final LinkedList<BTreeNode<E>> nodeList = new LinkedList<>(); // 子节点列表
 
         private BTreeNode() {
         }
@@ -520,13 +505,13 @@ public class BTree<E extends  Comparable<E>> {
 
         @Override
         public String toString() {
-            String str = "";
+            StringBuilder str = new StringBuilder();
             for (int i = 0; i < elementsList.size(); i++) {
                 E ele = elementsList.get(i);
                 String ele2String = ele.toString();
-                  str = str + ele2String;
+                  str.append(ele2String);
             }
-            return str;
+            return str.toString();
         }
     }
 }

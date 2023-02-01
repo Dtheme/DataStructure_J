@@ -7,7 +7,7 @@ import java.util.Comparator;
  * 二叉堆（最小堆）
  * 单独复制出来的一份
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class MinHeap<E> {
 	private int size;
 	private Comparator<E> comparator;

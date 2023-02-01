@@ -2,10 +2,10 @@ package com.dzw.Arraylist;
 
 import com.dzw.Base.AbstractList;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 
-/**
- * 支持动态缩容
+/*
+  支持动态缩容
  */
 public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	/**
@@ -15,7 +15,7 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	private static final int DEFAULT_CAPACITY = 10;
 	
 	public ArrayList_trimCapacity(int capaticy) {
-		capaticy = (capaticy < DEFAULT_CAPACITY) ? DEFAULT_CAPACITY : capaticy;
+		capaticy = Math.max(capaticy, DEFAULT_CAPACITY);
 		elements = (E[]) new Object[capaticy];
 	}
 	
@@ -39,9 +39,8 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	}
 
 	/**
-	 * 获取index位置的元素
-	 * @param index
-	 * @return
+	 * @param index 获取index位置的元素
+	 * @return 元素值
 	 */
 	public E get(int index) { // O(1)
 		rangeCheck(index);
@@ -50,9 +49,8 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	}
 
 	/**
-	 * 设置index位置的元素
-	 * @param index
-	 * @param element
+	 * @param index 设置index位置的值
+	 * @param element 设置的元素值
 	 * @return 原来的元素ֵ
 	 */
 	public E set(int index, E element) { // O(1)
@@ -66,8 +64,8 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	/**
 	 * 在index位置插入一个元素
 	 * 时间复杂度 最好：O(1) 最坏：O(n) 平均：O(n)
-	 * @param index
-	 * @param element
+	 * @param index 在index位置插入一个元素
+	 * @param element 元素值
 	 */
 	public void add(int index, E element) {
 		rangeCheckForAdd(index);
@@ -82,9 +80,8 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	} // size是数据规模
 
 	/**
-	 * 删除index位置的元素
-	 * @param index
-	 * @return
+	 * @param index 删除index位置的元素
+	 * @return 删除的元素
 	 */
 	public E remove(int index) {
 		/*
@@ -106,9 +103,8 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	}
 
 	/**
-	 * 查看元素的索引
-	 * @param element
-	 * @return
+	 * @param element 查看元素的索引
+	 * @return element的索引
 	 */
 	public int indexOf(E element) {
 		if (element == null) {
@@ -124,8 +120,7 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 保证要有capacity的容量
-	 * @param capacity
+	 * @param capacity 保证要有capacity的容量
 	 */
 	private void ensureCapacity(int capacity) {
 		int oldCapacity = elements.length;
@@ -137,9 +132,7 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 		// 新容量为旧容量的2倍
 		// int newCapacity = oldCapacity << 1;
 		E[] newElements = (E[]) new Object[newCapacity];
-		for (int i = 0; i < size; i++) {
-			newElements[i] = elements[i];
-		}
+		if (size >= 0) System.arraycopy(elements, 0, newElements, 0, size);
 		elements = newElements;
 		
 		System.out.println(oldCapacity + "扩容为" + newCapacity);
@@ -154,16 +147,14 @@ public class ArrayList_trimCapacity<E> extends AbstractList<E> {
 		
 		// 还有很多剩余空间
 		E[] newElements = (E[]) new Object[newCapacity];
-		for (int i = 0; i < size; i++) {
-			newElements[i] = elements[i];
-		}
+		if (size >= 0) System.arraycopy(elements, 0, newElements, 0, size);
 		elements = newElements;
 		
 		System.out.println(oldCapacity + "缩容为" + newCapacity);
 	}
 	@Override
-	/**
-	 * testcase用 检查数据
+	/*
+	  testcase用 检查数据
 	 */
 	public String toString() {
 		// size=3, [99, 88, 77]
