@@ -44,6 +44,6 @@
 21. 图(Graph)
 22. 图的搜索：DFS/BFS
 23. 最小生成树：Dijkstra、BellmanFord、Floyd
-24. 串(string matching)
-25. 字符串匹配：KMP（Knuth-Morris-pratt）、BM(Boyer-Moore)、RK(Rabin-Karp)、Sunday
+24. ~~串(string matching)~~
+25. ~~字符串匹配：KMP（Knuth-Morris-pratt）、BM(Boyer-Moore)、RK(Rabin-Karp)、Sunday~~
 
