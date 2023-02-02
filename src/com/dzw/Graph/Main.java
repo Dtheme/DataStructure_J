@@ -4,13 +4,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.dzw.Graph.Graph;
 import com.dzw.Graph.Graph.EdgeInfo;
 import com.dzw.Graph.Graph.PathInfo;
 import com.dzw.Graph.Graph.WeightManager;
-import com.dzw.Graph.ListGraph;
 import com.dzw.models.Data;
-
+@SuppressWarnings("unused")
 public class Main {
 	static WeightManager<Double> weightManager = new WeightManager<Double>() {
 		public int compare(Double w1, Double w2) {
@@ -134,9 +132,8 @@ public class Main {
 	}
 	
 	/**
-	 * 无向图
-	 * @param data
-	 * @return
+	 * @param data 无向图
+	 * @return 无向图
 	 */
 	private static Graph<Object, Double> undirectedGraph(Object[][] data) {
 		Graph<Object, Double> graph = new ListGraph<>(weightManager);

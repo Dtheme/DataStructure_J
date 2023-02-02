@@ -359,14 +359,14 @@ public class ListGraph<V, E> extends Graph<V, E> {
 			for (Edge<V, E> edge : edges) {
 				PathInfo<V, E> fromPath = selectedPaths.get(edge.from.value);
 				if (fromPath == null) continue;
-				relax(edge, fromPath, selectedPaths);
+				relaxForBellmanFord(edge, fromPath, selectedPaths);
 			}
 		}
 		
 		for (Edge<V, E> edge : edges) {
 			PathInfo<V, E> fromPath = selectedPaths.get(edge.from.value);
 			if (fromPath == null) continue;
-			if (relax(edge, fromPath, selectedPaths)) {
+			if (relaxForBellmanFord(edge, fromPath, selectedPaths)) {
 				System.out.println("有负权环");
 				return null;
 			}
@@ -383,7 +383,7 @@ public class ListGraph<V, E> extends Graph<V, E> {
 	 * @param fromPath edge的from的最短路径信息
 	 * @param paths 存放着其他点（对于dijkstra来说，就是还没有离开桌面的点）的最短路径信息
 	 */
-	private boolean relax(Edge<V, E> edge, PathInfo<V, E> fromPath, Map<V, PathInfo<V, E>> paths) {
+	private boolean relaxForBellmanFord(Edge<V, E> edge, PathInfo<V, E> fromPath, Map<V, PathInfo<V, E>> paths) {
 		// 新的可选择的最短路径：beginVertex到edge.from的最短路径 + edge.weight
 		E newWeight = weightManager.add(fromPath.weight, edge.weight);
 		// 以前的最短路径：beginVertex到edge.to的最短路径

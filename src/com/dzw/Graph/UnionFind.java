@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- *  目前只有一些基础实现 暂时
+ *  这个package实现的时候有用到，但又改动，为了不动维护原有实现，单独复制出来一份修改了细节
  */
 public class UnionFind<V> {
 	private final Map<V, Node<V>> nodes = new HashMap<>();
