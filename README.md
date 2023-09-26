@@ -4,6 +4,7 @@
 ### 推荐
 
 [算法可视化](https://visualgo.net/zh)
+[一本很棒的开源算法书](https://github.com/krahets/hello-algo)
 
 ### 过程中使用到的参考资料：
 
@@ -17,7 +18,7 @@
 8. [布谷过滤器（Cuckoo Filter）](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
 9. [可逆布隆过滤器（Invertible Bloom Filters）](https://arxiv.org/pdf/0704.3313.pdf)
 10. 上面可视化网站没有这个数据结构，所以补充一个：[布隆过滤器Bloom Filters playground](https://www.jasondavies.com/bloomfilter/)
-11. [一本很棒的开源算法书](https://github.com/krahets/hello-algo)
+
 
 ### 计划实现的数据结构：
 （如果最终没有实现将会从表中移除...）
