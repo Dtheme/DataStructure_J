@@ -1,11 +1,10 @@
 # DataStructure_J
 本仓库将会使用Java实现一些基本的数据结构。练习仓库，后续是否会包含LeetCode解题要看有没有有时间，目前暂时没有规划。
 
-### 推荐
+### 工具与读物推荐
 
-[算法可视化](https://visualgo.net/zh)
-
-[一本很棒的开源算法书](https://github.com/krahets/hello-algo)
+1. [算法可视化](https://visualgo.net/zh)
+2. [一本很棒的开源算法书](https://github.com/krahets/hello-algo)
 
 ### 过程中使用到的参考资料：
 
